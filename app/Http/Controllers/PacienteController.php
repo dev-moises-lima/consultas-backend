@@ -20,7 +20,7 @@ class PacienteController extends Controller
         $caminhoDaFoto = $request->foto->path();
 
         $imagemManager = ImageManager::gd()->read($caminhoDaFoto);
-        $imagemManager->coverDown(1000, 1000);
+        $imagemManager->cover(300, 300);
         $nomeDaFoto = uniqid() . '.' . $extensaoDaFoto;
         $imagemManager->save("..\storage\app\public\imagens\\$nomeDaFoto");
         $novoCaminhoDaFoto = asset('storage/imagens/' . $nomeDaFoto);
